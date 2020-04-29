@@ -1552,7 +1552,6 @@ class _XrBase:
 
 
     def _validate_property(self, expected, property, name):
-        # if isinstance(expected, (list, set)):
         difference = set(expected) - set([str(el) for el in property])
         if difference:
             msg = ('Provided DataArray {name} {found} do not contain '
@@ -1569,9 +1568,9 @@ class _XrBase:
                        'exactly match {expected}')
                 raise ValueError(msg.format(
                     found=list(property),
-                    expected=sorted(expected)),
+                    expected=sorted(expected),
                     name=name,
-                )
+                ))
 
 
     def _coord_check(self, expected, coords):
